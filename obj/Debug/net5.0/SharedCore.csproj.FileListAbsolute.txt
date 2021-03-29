@@ -1,0 +1,5 @@
+J:\Desenvolvimento\Projetos\shared\sharedcore\obj\Debug\net5.0\SharedCore.csprojAssemblyReference.cache
+J:\Desenvolvimento\Projetos\shared\sharedcore\obj\Debug\net5.0\SharedCore.GeneratedMSBuildEditorConfig.editorconfig
+J:\Desenvolvimento\Projetos\shared\sharedcore\obj\Debug\net5.0\SharedCore.AssemblyInfoInputs.cache
+J:\Desenvolvimento\Projetos\shared\sharedcore\obj\Debug\net5.0\SharedCore.AssemblyInfo.cs
+J:\Desenvolvimento\Projetos\shared\sharedcore\obj\Debug\net5.0\SharedCore.csproj.CoreCompileInputs.cache
