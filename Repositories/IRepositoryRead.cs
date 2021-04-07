@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace SharedCore.Repository
+namespace SharedCore.Repositories
 {
     public interface IRepositoryRead<T>
     {

@@ -1,6 +1,6 @@
-using SharedCore.Repository;
 
-namespace SharedCore.Repository
+
+namespace SharedCore.Repositories
 {
     public interface IRepositoryWrite<T> : IRepositoryRead<T>
     {
