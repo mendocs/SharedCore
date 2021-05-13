@@ -47,7 +47,30 @@ namespace SharedCore.tools
 
         public static string ConvertDateToString(DateTime dateBase)
         {
-            TimeZoneInfo brZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+            TimeZoneInfo brZone;
+           
+            try
+            {
+                //for linux 
+                brZone = TimeZoneInfo.FindSystemTimeZoneById("America/Sao_Paulo");
+            }
+            catch(Exception){
+                try
+                {
+                    //for windows
+                    brZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time11");
+                }
+                catch(Exception){
+                    //manual    
+                    brZone = TimeZoneInfo.CreateCustomTimeZone("Brazil Southeast",
+                                                        new TimeSpan(-3, 0, 0),
+                                                        " (GMT-03:00) Sao Paulo",
+                                                        "Brazil southeast");
+
+                }
+
+            }
+            
             DateTime dateBr = TimeZoneInfo.ConvertTime(dateBase, brZone);
             return dateBr.ToString(("dd/MM/yyyy HH:mm"));
         }
