@@ -6,7 +6,7 @@ namespace SharedCore.tools
     {
         public static DateTime DateTimeSetHourToZero(DateTime dateTimeOriginal)
         {
-            DateTime DatetimeResult = new DateTime(dateTimeOriginal.Year,dateTimeOriginal.Month,dateTimeOriginal.Day,0,0,0);
+            DateTime DatetimeResult = new DateTime(dateTimeOriginal.Year,dateTimeOriginal.Month,dateTimeOriginal.Day,0,0,0,DateTimeKind.Local);
             return DatetimeResult.ToUniversalTime();
 
         }
@@ -14,7 +14,7 @@ namespace SharedCore.tools
 
         public static DateTime DateTimeSetHourTo2359(DateTime dateTimeOriginal)
         {
-            DateTime DatetimeResult = new DateTime(dateTimeOriginal.Year,dateTimeOriginal.Month,dateTimeOriginal.Day,23,59,59);
+            DateTime DatetimeResult = new DateTime(dateTimeOriginal.Year,dateTimeOriginal.Month,dateTimeOriginal.Day,23,59,59,DateTimeKind.Local);
             return DatetimeResult.ToUniversalTime();
 
         }    
