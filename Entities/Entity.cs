@@ -14,11 +14,44 @@ namespace SharedCore.Entities
 
         protected Entity()
         {
+            this.SetItensConstructor();
+            
+            /*
             this.Key = Guid.NewGuid();
             this.keyCreatedOnConstructor = this.Key;
             this.Updated = DateTime.Now;
             this.Created = DateTime.Now;
-        }        
+            */
+        }
+
+        public virtual void SetItensConstructor()
+        {
+            if (this.keyCreatedOnConstructor == Guid.Empty )
+                this.keyCreatedOnConstructor = Guid.NewGuid();
+
+                
+            if (this.Key == Guid.Empty)
+                this.Key = this.keyCreatedOnConstructor;
+
+            if (this.Created == DateTime.MinValue ) 
+                this.Created = DateTime.Now;
+
+            if (this.Updated == DateTime.MinValue ) 
+                this.Updated = DateTime.Now;                
+
+        }
+
+
+        public void SetKeyNull()
+        {
+            this.Key = Guid.Empty;
+        }
+
+
+        public void SetUpdate()
+        {
+            this.Updated = DateTime.Now;
+        }
 
         public virtual bool Validade()
         {

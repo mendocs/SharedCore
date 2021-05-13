@@ -13,5 +13,7 @@ namespace SharedCore.Entities
         bool Validade();
 
         bool isFromDatabase();
+
+        void SetUpdate();
     }
 }

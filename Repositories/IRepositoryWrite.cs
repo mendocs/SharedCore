@@ -1,13 +1,13 @@
-
+using System.Threading.Tasks;
 
 namespace SharedCore.Repositories
 {
     public interface IRepositoryWrite<T> : IRepositoryRead<T>
     {
-         void Insert(T obj);
+         Task<T> Insert(T obj);
 
-         void update(T obj);
+         Task<long> Update(T obj);
 
-         void delete(T obj);
+         Task Delete(T obj);
     }
 }
