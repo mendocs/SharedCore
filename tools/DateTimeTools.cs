@@ -45,7 +45,13 @@ namespace SharedCore.tools
 
         }
 
-        public static string ConvertDateToString(DateTime dateBase) => dateBase.ToLocalTime().ToString("g");
+        public static string ConvertDateToString(DateTime dateBase)
+        {
+            TimeZoneInfo brZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+            DateTime dateBr = TimeZoneInfo.ConvertTime(dateBase, brZone);
+            return dateBr.ToString(("dd/MM/yyyy HH:mm"));
+        }
+         
 
         public static string ConvertDateToString(DateTime? dateBase) {
             if (dateBase.HasValue)
