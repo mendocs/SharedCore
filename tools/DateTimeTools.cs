@@ -47,6 +47,13 @@ namespace SharedCore.tools
 
         public static string ConvertDateToString(DateTime dateBase)
         {
+            DateTime dateBr = SetDateTimeToTimeZoneBR(dateBase);
+            return dateBr.ToString(("dd/MM/yyyy HH:mm"));
+        }
+         
+
+    public static DateTime SetDateTimeToTimeZoneBR(DateTime dateBase)
+    {
             TimeZoneInfo brZone;
            
             try
@@ -58,7 +65,7 @@ namespace SharedCore.tools
                 try
                 {
                     //for windows
-                    brZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time11");
+                    brZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time1");
                 }
                 catch(Exception){
                     //manual    
@@ -66,15 +73,16 @@ namespace SharedCore.tools
                                                         new TimeSpan(-3, 0, 0),
                                                         " (GMT-03:00) Sao Paulo",
                                                         "Brazil southeast");
-
                 }
 
-            }
-            
-            DateTime dateBr = TimeZoneInfo.ConvertTime(dateBase, brZone);
-            return dateBr.ToString(("dd/MM/yyyy HH:mm"));
-        }
-         
+            }   
+
+            return TimeZoneInfo.ConvertTime(dateBase, brZone).ToUniversalTime();     
+
+    }
+
+
+
 
         public static string ConvertDateToString(DateTime? dateBase) {
             if (dateBase.HasValue)
