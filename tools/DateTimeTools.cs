@@ -56,9 +56,9 @@ namespace SharedCore.tools
             TimeZoneInfo brZone;
            
             try{
-                //for linux 
+                //for linux , to compensate utc local +3
                 brZone = TimeZoneInfo.FindSystemTimeZoneById("America/Sao_Paulo");
-                return dateBase.AddHours(6);
+                return dateBase.AddHours(3);
             } 
             catch(Exception){
                 return dateBase;
@@ -91,7 +91,7 @@ namespace SharedCore.tools
 
             }   
 
-            return TimeZoneInfo.ConvertTime(dateBase, brZone).ToUniversalTime();     
+            return TimeZoneInfo.ConvertTime(dateBase, brZone);     
 
     }
 
