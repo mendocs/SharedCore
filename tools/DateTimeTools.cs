@@ -50,7 +50,21 @@ namespace SharedCore.tools
             DateTime dateBr = SetDateTimeToTimeZoneBR(dateBase);
             return dateBr.ToString(("dd/MM/yyyy HH:mm"));
         }
-         
+
+    public static DateTime AjustDateTimeToLinux(DateTime dateBase){
+
+            TimeZoneInfo brZone;
+           
+            try{
+                //for linux 
+                brZone = TimeZoneInfo.FindSystemTimeZoneById("America/Sao_Paulo");
+                return dateBase.AddHours(6);
+            } 
+            catch(Exception){
+                return dateBase;
+            }       
+    }
+
 
     public static DateTime SetDateTimeToTimeZoneBR(DateTime dateBase)
     {
@@ -65,7 +79,7 @@ namespace SharedCore.tools
                 try
                 {
                     //for windows
-                    brZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time1");
+                    brZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
                 }
                 catch(Exception){
                     //manual    
