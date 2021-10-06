@@ -4,38 +4,32 @@ namespace SharedCore.tools
 {
     public static class DateTimeTools
     {
-        public static DateTime DateTimeSetHourToZero(DateTime dateTimeOriginal)
-        {
+        public static DateTime DateTimeSetHourToZero(DateTime dateTimeOriginal){
             DateTime DatetimeResult = new DateTime(dateTimeOriginal.Year,dateTimeOriginal.Month,dateTimeOriginal.Day,0,0,0,DateTimeKind.Local);
             return AjustDateTimeToLinuxToInput(DatetimeResult.ToUniversalTime());
-
         }
 
 
-        public static DateTime DateTimeSetHourTo2359(DateTime dateTimeOriginal)
-        {
+        public static DateTime DateTimeSetHourTo2359(DateTime dateTimeOriginal){
             DateTime DatetimeResult = new DateTime(dateTimeOriginal.Year,dateTimeOriginal.Month,dateTimeOriginal.Day,23,59,59,DateTimeKind.Local);
             return AjustDateTimeToLinuxToInput(DatetimeResult.ToUniversalTime());
 
         }    
 
-        private static DateTime NormalizeDateTimeUTC(DateTime dt)
-        {
+        private static DateTime NormalizeDateTimeUTC(DateTime dt){
             DateTime dtUTC = dt.ToUniversalTime();
             return new DateTime (dtUTC.Year,dtUTC.Month,dtUTC.Day,dtUTC.Hour,dtUTC.Minute,0);
         } 
 
 
-        public static bool CompareDateTime(DateTime dt1 , DateTime dt2 )
-        {
+        public static bool CompareDateTime(DateTime dt1 , DateTime dt2 ){
             dt1 = NormalizeDateTimeUTC(dt1);
             dt2 = NormalizeDateTimeUTC(dt2);
 
             return (dt1 == dt2);
         }
 
-        public static DateTime? DateTimeBetween(DateTime dtbase , DateTime dt1, DateTime dt2)
-        {
+        public static DateTime? DateTimeBetween(DateTime dtbase , DateTime dt1, DateTime dt2){
 
             if (NormalizeDateTimeUTC(dtbase) >= NormalizeDateTimeUTC(dt1) 
                 && NormalizeDateTimeUTC(dtbase) <= NormalizeDateTimeUTC(dt2))
@@ -45,8 +39,7 @@ namespace SharedCore.tools
 
         }
 
-        public static string ConvertDateToString(DateTime dateBase)
-        {
+        public static string ConvertDateToString(DateTime dateBase){
             DateTime dateBr = SetDateTimeToTimeZoneBR(dateBase);
             return dateBr.ToString(("dd/MM/yyyy HH:mm"));
         }
@@ -80,8 +73,7 @@ namespace SharedCore.tools
         }
 
 
-    public static DateTime SetDateTimeToTimeZoneBR(DateTime dateBase)
-    {
+        public static DateTime SetDateTimeToTimeZoneBR(DateTime dateBase){
             TimeZoneInfo brZone;
            
             try
@@ -107,10 +99,7 @@ namespace SharedCore.tools
 
             return TimeZoneInfo.ConvertTime(dateBase, brZone);     
 
-    }
-
-
-
+        }
 
         public static string ConvertDateToString(DateTime? dateBase) {
             if (dateBase.HasValue)

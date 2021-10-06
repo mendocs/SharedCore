@@ -10,7 +10,7 @@ namespace SharedCore.Entities
 
         DateTime Updated { get; }
 
-        bool Validade();
+        bool Validate();
 
         bool isFromDatabase();
 

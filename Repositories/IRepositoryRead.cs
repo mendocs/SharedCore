@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Linq;
 
@@ -5,9 +6,9 @@ namespace SharedCore.Repositories
 {
     public interface IRepositoryRead<T>
     {
-        IQueryable<T> QueryAll();
+        Task<IQueryable<T>> QueryAll();
 
-        T Query(Guid key);
+        Task<T> Query(Guid key);
         
     }
 }

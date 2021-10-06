@@ -7,29 +7,17 @@ namespace SharedCore.Entities
         public Guid Key { get; private set; }
         public  DateTime Created { get; private set; }
         public DateTime Updated { get; private set; }
-
         private Guid keyCreatedOnConstructor;
-
-        
-
         protected Entity()
         {
             this.SetItensConstructor();
-            
-            /*
-            this.Key = Guid.NewGuid();
-            this.keyCreatedOnConstructor = this.Key;
-            this.Updated = DateTime.Now;
-            this.Created = DateTime.Now;
-            */
         }
 
         public virtual void SetItensConstructor()
-        {
+        {           
             if (this.keyCreatedOnConstructor == Guid.Empty )
                 this.keyCreatedOnConstructor = Guid.NewGuid();
 
-                
             if (this.Key == Guid.Empty)
                 this.Key = this.keyCreatedOnConstructor;
 
@@ -38,7 +26,6 @@ namespace SharedCore.Entities
 
             if (this.Updated == DateTime.MinValue ) 
                 this.Updated = DateTime.Now;                
-
         }
 
 
@@ -53,7 +40,7 @@ namespace SharedCore.Entities
             this.Updated = DateTime.Now;
         }
 
-        public virtual bool Validade()
+        public virtual bool Validate()
         {
             return true;
         }
