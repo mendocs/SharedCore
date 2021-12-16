@@ -29,19 +29,24 @@ namespace SharedCore.tools
             return (dt1 == dt2);
         }
 
-        public static DateTime? DateTimeBetween(DateTime dtbase , DateTime dt1, DateTime dt2){
+        public static bool DateTimeBetween(DateTime dtbase , DateTime dt1, DateTime dt2){
 
-            if (NormalizeDateTimeUTC(dtbase) >= NormalizeDateTimeUTC(dt1) 
-                && NormalizeDateTimeUTC(dtbase) <= NormalizeDateTimeUTC(dt2))
-                return dtbase;
-            else    
-                return null;
+            return (NormalizeDateTimeUTC(dtbase) >= NormalizeDateTimeUTC(dt1) 
+                && NormalizeDateTimeUTC(dtbase) <= NormalizeDateTimeUTC(dt2));
+                //return dtbase;
+            //else    
+                //return null;
 
         }
 
         public static string ConvertDateToString(DateTime dateBase){
             DateTime dateBr = SetDateTimeToTimeZoneBR(dateBase);
             return dateBr.ToString(("dd/MM/yyyy HH:mm"));
+        }
+
+        public static string ConvertDateHourToString(DateTime dateBase){
+            DateTime dateBr = SetDateTimeToTimeZoneBR(dateBase);
+            return dateBr.ToString(("HH:mm"));
         }
 
         public static DateTime AjustDateTimeToLinuxToInput(DateTime dateBase){
