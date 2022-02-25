@@ -28,6 +28,10 @@ namespace SharedCore.Entities
                 this.Updated = DateTime.Now;                
         }
 
+        public void SetKey(Guid _key)
+        {
+            this.Key = _key;
+        }
 
         public void SetKeyNull()
         {
